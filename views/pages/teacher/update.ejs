@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Add New Teachers</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <form action="/dashboard/teachers/update/<%= teacher._id %>?_method=PUT" method="POST" class="form-ho rizontal">
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="fullName" class=" form-control-label">Full
+                                        Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="fullName" name="fullName" value="<%= teacher.fullName %>"
+                                        class="form-control"></div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="subject"
+                                        class=" form-control-label">Subject</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select name="subject" id="subject" class="form-control">
+                                        <option value="English" <% if(locals.teacher.subject === 'English'){ %>selected<% } %>>English</option>
+                                        <option value="Math" <% if(locals.teacher.subject === 'Math'){ %>selected<% } %>>Math</option>
+                                        <option value="Russian" <% if(locals.teacher.subject === 'Russian'){ %>selected<% } %>>Russian</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="phone" class=" form-control-label">Phone</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" value="<%= teacher.phone %>"
+                                        class="form-control"></div>
+                            </div>
+
+                            <div class="float-right"><button class="btn btn-success" type="submit"><i
+                                        class="menu-icon fa  fa-plus"></i>
+                                    Add</button> </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>

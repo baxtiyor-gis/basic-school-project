@@ -1,0 +1,110 @@
+<div class="breadcrumbs">
+
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Add New Group</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <form action="/dashboard/groups" method="POST" class="form-ho rizontal">
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="name" class=" form-control-label">
+                                        Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="name" name="name"
+                                        class="form-control"></div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="subject"
+                                        class=" form-control-label">Subject</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select name="subject" id="subject" class="form-control">
+                                        <option value="English">English</option>
+                                        <option value="Math">Math</option>
+                                        <option value="Russian">Russian</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="date" class=" form-control-label">Date</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select name="date" id="date" class="form-control">
+                                        <option value="Odd">Odd</option>
+                                        <option value="Even">Even</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="time" class=" form-control-label">Time</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="time" name="time"
+                                        class="form-control">
+                                        <small class="form-text text-muted">Example: 14:00-16:00</small>
+                                    </div>
+                                   
+
+                            </div>
+
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="price" class=" form-control-label">Price</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="number" id="price" name="price"
+                                        class="form-control"></div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="subject"
+                                        class=" form-control-label">Teacher</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select name="teacher" id="teacher" class="form-control">
+                                        <% teachers.forEach(teacher=> {%>
+                                            <option value="<%= teacher._id %>">
+                                                <%= teacher.fullName %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="float-right"><button class="btn btn-success" type="submit"><i
+                                        class="menu-icon fa  fa-plus"></i>
+                                    Add</button> </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>

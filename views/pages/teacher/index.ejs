@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">All Teachers</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="row">Full Name</th>
+                                    <th scope="row">Phone </th>
+                                    <th scope="row">Subject</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <% teachers.forEach(teacher=> { %>
+                                    <tr>
+                                        <td> <%= teacher.fullName %></td>
+                                        <td><%= teacher.phone %> </td>
+                                        <td><%= teacher.subject %></td>
+                                        <td>
+                                            <a href="/dashboard/teachers/update/<%= teacher._id %> "><button class="btn btn-primary"><i class="menu-icon fa fa-pencil-square-o"></i> </button></a>
+
+                                            <a href="/dashboard/teachers/delete/<%= teacher._id %> "><button class="btn btn-danger"><i class="menu-icon fa fa-trash-o"></i> </button></a></td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>

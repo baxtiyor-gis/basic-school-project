@@ -1,0 +1,109 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Student List</strong>
+                        <div class="float-right">
+                            <script>
+                                let urlParams = new URLSearchParams(window.location.search);
+                                let status = urlParams.get('status').toString()
+                                console.log(status);
+                            </script>
+
+                            <a href="/dashboard/students/">
+                                <button
+                                    class="btn<% if (!sort.status) { %> btn-primary <% } else {%> btn-outline-primary <% } %>">
+                                    All</button>
+                            </a>
+                            <a href="/dashboard/students/?status=Waiting">
+                                <button
+                                    class="btn<% if (sort.status === 'Waiting') { %> btn-primary <% } else {%> btn-outline-primary <% } %>">
+                                    Waiting</button>
+                            </a>
+                            <a href="/dashboard/students/?status=Rejected">
+                                <button
+                                    class="btn<% if (sort.status === 'Rejected') { %> btn-primary <% } else {%> btn-outline-primary <% } %>">
+                                    Rejected</button>
+                            </a>
+                            <a href="/dashboard/students/?status=Accepted">
+                                <button
+                                    class="btn<% if (sort.status === 'Accepted') { %> btn-primary <% } else {%> btn-outline-primary <% } %>">
+                                    Accepted</button>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered" style="font-size: small;">
+                            <thead>
+                                <tr>
+                                    <th scope="row">Full Name:</th>
+                                    <th scope="row">Date of Visit </th>
+                                    <th scope="row">Source of Information</th>
+                                    <th scope="row">Probable Time</th>
+                                    <th scope="row">Group</th>
+
+                                    <th scope="row">Subject</th>
+                                    <th scope="row">Phone</th>
+                                    <th scope="row"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <% students.forEach(student=> { %>
+                                    <tr <% if (student.status==='Waiting' ) { %>
+                                        class="bg-warning"
+                                        <% } else if(student.status==='Rejected' ) { %>
+                                            class="bg-danger"
+                                            <% } %>
+                                                >
+                                                <td>
+                                                    <%= student.fullName %>
+                                                </td>
+                                                <td>
+                                                    <%= student.dateOfVisit.toLocaleDateString() %>
+                                                </td>
+                                                <td>
+                                                    <%= student.sourceOfInformation %>
+                                                </td>
+                                                <td>
+                                                    <%= student.probableTime %>
+                                                </td>
+
+                                                <td>
+                                                    <% if (student.group) { %>
+                                                        <%=student.group.name %>
+                                                            <% } else {%>
+
+                                                                <% } %>
+                                                </td>
+                                                <td>
+                                                    <%= student.subject %>
+                                                </td>
+                                                <td>
+                                                    <%= student.phone %>
+                                                </td>
+                                                <td>
+                                                    <a href="/dashboard/students/update/<%= student._id %>"><button
+                                                            class="btn btn-primary"><i
+                                                                class="menu-icon fa fa-pencil-square-o"></i>
+                                                        </button></a>
+
+                                                    <a href="/dashboard/students/delete/<%= student._id %>"><button
+                                                            class="btn btn-danger"><i
+                                                                class="menu-icon fa fa-trash-o"></i> </button></a>
+                                                </td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>

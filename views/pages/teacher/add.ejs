@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="animated fadeIn">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Add New Teachers</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        <form action="/dashboard/teachers" method="POST" class="form-horizontal">
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="fullName" class=" form-control-label">Full
+                                        Name</label></div>
+                                <div class="col-12 col-md-9"><input type="text" id="fullName" name="fullName"
+                                        class="form-control"></div>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="subject"
+                                        class=" form-control-label">Subject</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <select name="subject" id="subject" class="form-control">
+                                        <option value="English">English</option>
+                                        <option value="Math">Math</option>
+                                        <option value="Russian">Russian</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        
+
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="phone" class=" form-control-label">Phone</label>
+                                </div>
+                                <div class="col-12 col-md-9"><input type="text" id="phone" name="phone"
+                                        class="form-control"></div>
+                            </div>
+
+                            <div class="float-right"><button class="btn btn-success" type="submit"><i
+                                        class="menu-icon fa  fa-plus"></i>
+                                    Add</button> </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>

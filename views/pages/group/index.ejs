@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Group List</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <th scope="row">Subject </th>
+                                    <th scope="row">Teacher</th>
+                                    <th scope="row">Time</th>
+                                    <th scope="row">Started date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <% groups.forEach(group => { %>
+                                    <tr>
+                                        <td><%= group.name %></td>
+                                        <td><%= group.subject %></td>
+                                        <td>
+                                            <% if (group.teacher) { %>
+                                                <%=group.teacher.fullName %> 
+                                            <% } else {%>
+
+                                            <% } %>
+                                        </td> 
+                                        <td><%= group.date %> / <%= group.time %> </td>
+                                        <td><%= group.startDate.toLocaleDateString() %></td>
+                                        <td>
+                                            <a href="/dashboard/groups/update/<%= group._id %> "><button class="btn btn-primary"><i class="menu-icon fa fa-pencil-square-o"></i> </button></a>
+
+                                            <a href="/dashboard/groups/delete/<%= group._id %> "><button class="btn btn-danger"><i class="menu-icon fa fa-trash-o"></i> </button></a>
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                    </tr>
+                               <% }); %>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div>
